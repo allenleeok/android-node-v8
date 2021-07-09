@@ -46,7 +46,7 @@ use_custom_libcxx=false
 
 ./_depot_tools/gn gen out.gn/arm-android "--args=$gn_args"
 
-./_depot_tools/ninja -C out.gn/arm-android v8 d8
+./_depot_tools/ninja -C out.gn/arm-android libv8
 
 cd $scriptdir/..
 x=$scriptdir/compiled/armeabi-v7a/
