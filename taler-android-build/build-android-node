@@ -43,6 +43,7 @@ function myconf() {
       --without-intl \
       --openssl-no-asm \
       --without-bundled-v8 \
+      --debug-node \
       --shared
 }
 

@@ -85,6 +85,11 @@ parser.add_option('--debug',
     action='store_true',
     dest='debug',
     help='also build debug build')
+    
+parser.add_option('--debug-node',
+    action='store_true',
+    dest='debug_node',
+    help='build the Node.js part of the binary with debugging symbols')    
 
 parser.add_option('--dest-cpu',
     action='store',
@@ -955,6 +960,7 @@ def configure_node(o):
   o['variables']['node_prefix'] = options.prefix
   o['variables']['node_install_npm'] = b(not options.without_npm)
   o['variables']['node_report'] = b(not options.without_report)
+  o['variables']['debug_node'] = b(options.debug_node)
   o['default_configuration'] = 'Debug' if options.debug else 'Release'
 
   host_arch = host_arch_win() if os.name == 'nt' else host_arch_cc()
