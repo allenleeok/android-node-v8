@@ -291,9 +291,7 @@ config("internal_config") {
     ":v8_header_features",
   ]
 
-  if (is_component_build) {
-    defines += [ "BUILDING_V8_SHARED" ]
-  }
+  defines += [ "BUILDING_V8_SHARED" ]
 }
 
 # This config should be applied to code using the libplatform.
@@ -3616,11 +3614,7 @@ v8_source_set("v8_libbase") {
 
   data_deps = []
 
-  defines = []
-
-  if (is_component_build) {
-    defines = [ "BUILDING_V8_BASE_SHARED" ]
-  }
+  defines = [ "BUILDING_V8_BASE_SHARED" ]
 
   if (is_posix || is_fuchsia) {
     sources += [
@@ -3757,9 +3751,7 @@ v8_source_set("v8_libplatform") {
 
   configs = [ ":internal_config_base" ]
 
-  if (is_component_build) {
-    defines = [ "BUILDING_V8_PLATFORM_SHARED" ]
-  }
+  defines = [ "BUILDING_V8_PLATFORM_SHARED" ]
 
   public_configs = [ ":libplatform_config" ]
 
