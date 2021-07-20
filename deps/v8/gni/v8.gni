@@ -229,3 +229,13 @@ template("v8_static_library") {
     configs += invoker.configs
   }
 }
+
+template("v8_loadable_module") {
+  loadable_module(target_name) {
+    forward_variables_from(invoker, "*", [ "configs" ])
+    configs -= v8_remove_configs
+    configs += v8_add_configs
+    configs += invoker.configs
+  }
+}
+
