@@ -38,6 +38,7 @@ v8_enable_debugging_features=false
 v8_enable_embedded_builtins=true
 is_clang=true
 use_custom_libcxx=false
+v8_enable_i18n_support=false
 EOF
 )
 
