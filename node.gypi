@@ -71,11 +71,6 @@
     [ 'node_use_bundled_v8=="false" and target_arch=="arm" and OS=="android"', {
       'libraries': [
          '<!(pwd)/deps/v8/out.gn/android-arm/libv8.so',
-         '<!(pwd)/deps/v8/out.gn/android-arm/libv8_libbase.cr.so',
-         '<!(pwd)/deps/v8/out.gn/android-arm/libv8_libplatform.cr.so',
-         '<!(pwd)/deps/v8/out.gn/android-arm/libv8.cr.so',
-         '<!(pwd)/deps/v8/out.gn/android-arm/libicui18n.cr.so',
-         '<!(pwd)/deps/v8/out.gn/android-arm/libicuuc.cr.so',
     ]
     }],
     [ 'node_use_bundled_v8=="false" and target_arch=="arm64" and OS=="android"', {
