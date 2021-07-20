@@ -4206,7 +4206,7 @@ v8_loadable_module("libv8") {
   defines = [ "BUILDING_V8_SHARED" ]
 
   sources = [
-    "src/v8dll-main.cc",
+    "src/utils/v8dll-main.cc",
   ]
 
   deps = [
