@@ -27,8 +27,8 @@ cd ./deps/v8
 python2 ./tools/node/fetch_deps.py $PWD
 
 gn_args='
-is_debug = true
-v8_enable_backtrace = true
+is_debug = false
+v8_enable_backtrace = false
 v8_enable_slow_dchecks = true
 v8_optimized_debug = false
 v8_target_cpu = "arm"
@@ -38,7 +38,7 @@ is_component_build=true
 v8_android_log_stdout=true
 v8_use_external_startup_data=false
 v8_use_snapshot=true
-v8_enable_debugging_features=true
+v8_enable_debugging_features=false
 v8_enable_embedded_builtins=true
 is_clang=true
 use_custom_libcxx=false
