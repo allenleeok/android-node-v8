@@ -75,11 +75,12 @@
       ],
     },{
       'libraries' : [
-         '<!(pwd)/deps/v8/out.gn/arm-android/libv8_libbase.cr.so',
-         '<!(pwd)/deps/v8/out.gn/arm-android/libv8_libplatform.cr.so',
-         '<!(pwd)/deps/v8/out.gn/arm-android/libv8.cr.so',
-         '<!(pwd)/deps/v8/out.gn/arm-android/libicui18n.cr.so',
-         '<!(pwd)/deps/v8/out.gn/arm-android/libicuuc.cr.so',
+         '/code/v8-android-buildscripts/v8/out.v8.arm/mtv8.so',
+         #'<!(pwd)/deps/v8/out.gn/arm-android/libv8_libbase.cr.so',
+         #'<!(pwd)/deps/v8/out.gn/arm-android/libv8_libplatform.cr.so',
+         #'<!(pwd)/deps/v8/out.gn/arm-android/libv8.cr.so',
+         #'<!(pwd)/deps/v8/out.gn/arm-android/libicui18n.cr.so',
+         #'<!(pwd)/deps/v8/out.gn/arm-android/libicuuc.cr.so',
       ],
     }],
     [ 'node_use_v8_platform=="true"', {
@@ -270,6 +271,16 @@
       'xcode_settings': {
         'OTHER_LDFLAGS': [
           '-Wl,-force_load,<(v8_base)',
+        ],
+      },
+    }],
+    [ 'debug_node=="true"', {
+      'cflags!': [ '-O3' ],
+      'cflags': [ '-g', '-O0' ],
+      'defines': [ 'DEBUG' ],
+      'xcode_settings': {
+        'OTHER_CFLAGS': [
+          '-g', '-O0'
         ],
       },
     }],

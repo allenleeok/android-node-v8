@@ -427,7 +427,7 @@
             },
           },
          }],
-        ['want_separate_host_toolset==0', {
+        ['node_use_node_code_cache=="true"', {
           'dependencies': [
             'mkcodecache',
           ],
@@ -688,6 +688,12 @@
       'msvs_disabled_warnings!': [4244],
 
       'conditions': [
+        [ 'node_shared=="true"', {
+          'sources': [
+            'src/node_snapshot_stub.cc',
+            'src/node_code_cache_stub.cc',
+          ]
+        }],
         [ 'node_shared=="true" and node_module_version!="" and OS!="win"', {
           'product_extension': '<(shlib_suffix)',
           'xcode_settings': {
