@@ -8,7 +8,7 @@ cd $scriptdir/..
 NDK=$1
 
 DEST_CPU_ARCH='arm'
-API_LEVEL=26
+API_LEVEL=21
 BUILD_HOST_TAG='linux-x86_64'
 TOOLCHAIN_DIR=$NDK/toolchains/llvm/prebuilt/$BUILD_HOST_TAG/
 

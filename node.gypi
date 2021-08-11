@@ -75,7 +75,7 @@
       ],
     },{
       'libraries' : [
-         '/code/v8-android-buildscripts/v8/out.v8.arm/mtv8.so',
+         '/code/libv8.so',
          #'<!(pwd)/deps/v8/out.gn/arm-android/libv8_libbase.cr.so',
          #'<!(pwd)/deps/v8/out.gn/arm-android/libv8_libplatform.cr.so',
          #'<!(pwd)/deps/v8/out.gn/arm-android/libv8.cr.so',
