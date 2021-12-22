@@ -24,7 +24,6 @@ cd ./deps/v8
 python3 ./tools/node/fetch_deps.py $PWD
 
 gn_args=$(cat <<EOF
-is_official_build = true
 v8_optimized_debug = false
 v8_target_cpu = "$DEST_CPU_ARCH"
 target_os="android"
