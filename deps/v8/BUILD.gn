@@ -262,9 +262,7 @@ config("internal_config") {
     ":v8_header_features",
   ]
 
-  if (is_component_build) {
-    defines += [ "BUILDING_V8_SHARED" ]
-  }
+  defines += [ "BUILDING_V8_SHARED" ]
 }
 
 # This config should be applied to code using the libplatform.
@@ -3367,7 +3365,7 @@ v8_source_set("torque_ls_base") {
   }
 }
 
-v8_component("v8_libbase") {
+v8_source_set("v8_libbase") {
   sources = [
     "src/base/adapters.h",
     "src/base/address-region.h",
@@ -3457,9 +3455,7 @@ v8_component("v8_libbase") {
 
   defines = []
 
-  if (is_component_build) {
-    defines = [ "BUILDING_V8_BASE_SHARED" ]
-  }
+  defines = [ "BUILDING_V8_BASE_SHARED" ]
 
   if (is_posix || is_fuchsia) {
     sources += [
@@ -3561,7 +3557,7 @@ v8_component("v8_libbase") {
   # TODO(jochen): Add support for qnx, freebsd, openbsd, netbsd, and solaris.
 }
 
-v8_component("v8_libplatform") {
+v8_source_set("v8_libplatform") {
   sources = [
     "//base/trace_event/common/trace_event_common.h",
     "include/libplatform/libplatform-export.h",
@@ -3590,9 +3586,7 @@ v8_component("v8_libplatform") {
 
   configs = [ ":internal_config_base" ]
 
-  if (is_component_build) {
-    defines = [ "BUILDING_V8_PLATFORM_SHARED" ]
-  }
+  defines = [ "BUILDING_V8_PLATFORM_SHARED" ]
 
   public_configs = [ ":libplatform_config" ]
 
@@ -3897,7 +3891,7 @@ group("v8_fuzzers") {
 }
 
 if (is_component_build) {
-  v8_component("v8") {
+  v8_source_set("v8") {
     sources = [
       "src/v8dll-main.cc",
     ]
@@ -3912,7 +3906,7 @@ if (is_component_build) {
     public_configs = [ ":external_config" ]
   }
 
-  v8_component("v8_for_testing") {
+  v8_source_set("v8_for_testing") {
     testonly = true
 
     sources = [
@@ -3961,6 +3955,23 @@ if (is_component_build) {
 
     public_configs = [ ":external_config" ]
   }
+}
+
+v8_loadable_module("libmgcv8") {
+  defines = [ "BUILDING_V8_SHARED" ]
+
+  sources = [
+    "src/v8dll-main.cc",
+  ]
+
+  deps = [
+    ":v8",
+    ":v8_libbase",
+    ":v8_libplatform",
+    ":v8_maybe_snapshot",
+  ]
+
+  configs = [ ":internal_config" ]
 }
 
 v8_executable("d8") {
