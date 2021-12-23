@@ -61,4 +61,4 @@ echo "executing gn gen"
 
 echo "executing ninja"
 
-./_depot_tools/ninja -C out.gn/android-$DEST_CPU_ARCH "libmgcv8"
+ninja -C out.gn/android-$DEST_CPU_ARCH "libmgcv8"
